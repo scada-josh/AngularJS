@@ -1,3 +1,4 @@
 function TodoCtrl($scope){
-	$scope.todos = ["", "", ""];
+	$scope.todos = ["AngularJS", "", ""];
+	//$scope.todos = [];
 }
