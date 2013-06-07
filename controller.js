@@ -9,6 +9,3 @@ function PhoneListCtrl($scope) {
   ];
 }
 
-function TodoCtrl($scope){
-	$scope.todos = [];
-}
