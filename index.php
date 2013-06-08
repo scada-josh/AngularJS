@@ -6,12 +6,15 @@
   <!-- <link rel="stylesheet" href="css/app.css"> -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <script src="./angular-1.0.7/angular.js"></script>
+  <script src="./todoCtrl.js"></script>
 </head>
 <body>
  
-  <p>Nothing here {{'yet' + '!'}}</p>
-
-  <p>1 + 2 = {{ 1 + 2 }}</p>
+  <div class="row span6 offset3" ng-controller="TodoCtrl">
+  	<ul>
+  		<li ng-repeat="todo in todos">{{todo}}</li>
+  	</ul>
+  </div>
  
 </body>
 </html>
