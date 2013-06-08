@@ -1,4 +1,4 @@
-describe('ทดสอบตามเค้า', function() {
+describe('ทดสอบหน้าจอ', function() {
 
 	var scope, ctrl;
 
@@ -7,7 +7,7 @@ describe('ทดสอบตามเค้า', function() {
 		ctrl = new TodoCtrl(scope);
 	});
 
-	describe('PhoneListCtrl', function(){
+	describe('ทดสอบฟังก์ชัน todos', function(){
 
 		it('should start with 3 items', function() {
 			//expect(3).toEqual(3);
@@ -30,7 +30,7 @@ describe('ทดสอบตามเค้า', function() {
 
 			var practiceTDD = scope.todos[3];
 			expect(practiceTDD.detail).toEqual("practiceTDD");
-			expect(practiceTDD.status).toEqual("undone");
+			expect(practiceTDD.status).toEqual(false);
 		});
 
 	});
