@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang='en' ng-app>
+  <head>
+    <title>Shopping Cart</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+  </head>
+
+  <body ng-controller="ShoppingController">
+    <h1>Shop!</h1>
+    <table>
+      <tr ng-repeat="item in items">
+        <td>{{item.title}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price | currency}}</td>
+      </tr>
+    </table>
+    <script>
+      function ShoppingController($scope, $http) {
+        // $http.get('/products').success(function(data, status, headers, config) {
+        //   $scope.items = data;
+        // });
+
+        $http.get('./restJSON.php', {params: {id: '5'} })
+            .success(function(data, status, headers, config) {
+              $scope.items = data;
+              //alert(data);
+            })
+
+      }
+    </script>
+  </body>
+</html>

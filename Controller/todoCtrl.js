@@ -27,7 +27,6 @@ function TodoCtrl($scope, $http){
 				})
 				.error(function(data, status, headers, config) { 
 
-				}
-		);
+				});
 	}
 }

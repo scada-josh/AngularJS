@@ -32,6 +32,10 @@
     <button ng-click="remove($index)">Remove</button>
   </div>
 
+  <form ng-controller="StartUpController"> Starting: <input ng-change="computeNeeded()"
+ng-model="funding.startingEstimate"> Recommendation: {{funding.needed}}
+</form>
+
 
   
 </body>
