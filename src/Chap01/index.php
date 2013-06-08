@@ -2,27 +2,37 @@
 <html lang="en" ng-app>
 <head>
   <meta charset="utf-8">
-  <title>My HTML File</title>
+  <title>Shoppig Cart Example</title>
   <!-- <link rel="stylesheet" href="css/app.css"> -->
   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css">
   <script src="../../angular-1.0.7/angular.js"></script>
-  <script src="./Controller/todoCtrl.js"></script>
+  <!-- <script src="./Controller/todoCtrl.js"></script> -->
+  <script type="text/javascript">
+  function CartController($scope) { 
+    $scope.items = [
+                    {title: 'Paint pots', quantity: 8, price: 3.95},
+                    {title: 'Polka dots', quantity: 17, price: 12.95},
+                    {title: 'Pebbles', quantity: 5, price: 6.95}
+                   ];
+
+     $scope.remove = function(index) { 
+      $scope.items.splice(index, 1);
+    } 
+  }
+    </script>
 </head>
-<body>
+<body  ng-controller='CartController'>
  
-  <div class="row span6 offset3" ng-controller="TodoCtrl">
-  	<ul>
-  		<li ng-repeat="todo in todos">
-  			<label class="checkbox" >
-  				<input type="checkbox" class="done_{{todo.status}}" ng-model="todo.status"/> {{todo}}
-  			</label>
-  		</li>
-  	</ul>
-  	<form class="form-search">
-  		<input type="text" class="input-medium search-query" ng-model="new_todos" placeholder="new Todos Go Here">
-  		<button type="button" class="btn" ng-click="addButtonClicked()">เพิ่มข้อมูล</button>
-  	</form>
+  <h1>Your Order</h1>
+  <div ng-repeat='item in items'>
+    <span>{{item.title}}</span>
+    <input ng-model='item.quantity'>
+    <span>{{item.price | currency}}</span> 
+    <span>{{item.price * item.quantity | currency}}</span> 
+    <button ng-click="remove($index)">Remove</button>
   </div>
- 
+
+
+  
 </body>
 </html>
