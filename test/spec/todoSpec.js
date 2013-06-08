@@ -9,13 +9,28 @@ describe('ทดสอบตามเค้า', function() {
 
 	describe('PhoneListCtrl', function(){
 
-		it('should start with 2 items', function() {
+		it('should start with 3 items', function() {
+			//expect(3).toEqual(3);
 			expect(scope.todos.length).toEqual(3);
 		});
 
 		it('should init with AngularJS', function() {
-			var learnAngular = scope.todos[0];
+			var learnAngular = scope.todos[0].detail;
 			expect(learnAngular).toEqual("AngularJS");
+		});
+
+		it('should have detail', function() {
+			expect(scope.todos[0].detail).toEqual("AngularJS");
+		});
+
+		it('should can Add new item', function() {
+			var newItems = 'practiceTDD';
+			scope.addItem(newItems);
+			expect(scope.todos.length).toEqual(4);
+
+			var practiceTDD = scope.todos[3];
+			expect(practiceTDD.detail).toEqual("practiceTDD");
+			expect(practiceTDD.status).toEqual("undone");
 		});
 
 	});
